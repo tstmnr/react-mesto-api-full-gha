@@ -13,7 +13,6 @@ const errors = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
 const NotFoundError = require('./errors/NotFoundError');
-
 const app = express();
 
 const { PORT = 3000 } = process.env;
