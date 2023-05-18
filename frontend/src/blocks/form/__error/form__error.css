@@ -1,0 +1,13 @@
+.form__error {
+    font-size: 12px;
+    line-height: 14px;
+    color: red;
+    display: block;
+    margin: 2px 0 3px;
+    box-sizing: border-box;
+    height: 25px;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .5s, opacity .5s ease;
+}

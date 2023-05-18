@@ -1,0 +1,16 @@
+.profile {
+  font-family: 'Inter';
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 880px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+  .profile {
+    flex-direction: column;
+    gap: 33px;
+  }
+}

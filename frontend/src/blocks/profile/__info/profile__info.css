@@ -1,0 +1,19 @@
+.profile__info {
+  color: #fff;
+  display: grid;
+  grid-template-columns: 1fr 24px;
+  gap: 8px 18px;
+}
+
+@media screen and (max-width: 567px) {
+  .profile__info {
+    grid-template-columns: 1fr 18px;
+    gap: 7px 10px;
+  }
+}
+
+@media screen and (max-width: 367px) {
+  .profile__info {
+    transform: translate(14px);
+  }
+}

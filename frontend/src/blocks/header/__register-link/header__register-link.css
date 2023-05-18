@@ -1,0 +1,16 @@
+.header__register-link {
+  text-decoration: none;
+  color: white;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  align-items: center;
+}
+
+@media screen and (max-width: 567px) {
+  .header__logo {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
+

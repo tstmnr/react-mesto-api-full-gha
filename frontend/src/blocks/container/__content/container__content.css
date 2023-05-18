@@ -1,0 +1,10 @@
+.container__content {
+  margin-top: 40px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 567px) {
+  .container__content {
+    margin-top: 42px;
+    padding: 0 19px;
+  }
+}

@@ -1,0 +1,13 @@
+.form__container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 45px 0 0;
+  border: none;
+}
+
+@media screen and (max-width: 430px) {
+  .form__container {
+    margin: 71px 0 0;
+  }
+}

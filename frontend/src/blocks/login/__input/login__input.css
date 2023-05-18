@@ -1,0 +1,18 @@
+.login__input {
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #ccc;
+  height: 30px;
+  padding: 0;
+  padding-bottom: 5px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  background: transparent;
+  color: white;
+  width: 100%;
+}
+
+.login__input:not(:last-of-type) {
+  margin-bottom: 30px;
+}
