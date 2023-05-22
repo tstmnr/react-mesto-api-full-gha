@@ -51,7 +51,7 @@ class Auth {
 }
 
 const options = {
-  baseUrl: 'https://auth.nomoreparties.co',
+  baseUrl: 'https://api.tstmnr.nomoredomains.monster',
   headers: {
     'Content-Type': 'application/json'
   },
