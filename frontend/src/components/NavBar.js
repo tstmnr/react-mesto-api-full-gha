@@ -5,16 +5,16 @@ function NavBar({ email, onLogOut }) {
     <Routes>
       <Route
         exact
-        path="/sign-in"
+        path="/signin"
         element={
-          <Link to="/sign-up" className="header__register-link">Регистрация</Link>
+          <Link to="/signup" className="header__register-link">Регистрация</Link>
         }
       />
       <Route
         exact
-        path="/sign-up"
+        path="/signup"
         element={
-          <Link to="/sign-in" className="header__register-link">Войти</Link>
+          <Link to="/signin" className="header__register-link">Войти</Link>
         }
       />
       <Route

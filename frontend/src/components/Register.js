@@ -29,7 +29,7 @@ function Register({ onSubmit }) {
         <input className="register__input" type="password" name="password" value={changePassword || ''} onChange={handleChangePassword} placeholder="Пароль"/>
         <button className="register__button" type="submit">Зарегистироваться</button>
       </form>
-      <p className="register__caption">Уже зарегистрированы? <Link to="/sign-in" className="register__link">Войти</Link></p>
+      <p className="register__caption">Уже зарегистрированы? <Link to="/signin" className="register__link">Войти</Link></p>
     </div>
   )
 }
