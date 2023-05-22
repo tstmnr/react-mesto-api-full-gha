@@ -215,14 +215,14 @@ function App() {
 
           <Routes>
             <Route
-              path="/sign-in"
+              path="/signin"
               element={
                 <Login handleLogin={handleLogin} />
               }
             />
 
             <Route
-              path="/sign-up"
+              path="/signup"
               element={
                 <Register onSubmit={registerUser} />
               }
