@@ -177,7 +177,7 @@ function App() {
       .then((res) => {
         setIsSuccessSignUp(true);
         handleInfoTooltip();
-        navigate("/sign-in", {replace: true})
+        navigate("/signin", {replace: true})
       })
       .catch(err => {
         setIsSuccessSignUp(false);
