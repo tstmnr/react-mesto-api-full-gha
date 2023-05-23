@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable import/no-extraneous-dependencies */
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -9,6 +10,7 @@ const bodyParser = require('body-parser');
 const userRouter = require('./routes/user');
 const cardRouter = require('./routes/card');
 const auth = require('./middlewares/auth');
+const cors = require('./middlewares/cors');
 const errors = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
@@ -20,13 +22,22 @@ const app = express();
 
 const { PORT = 3000 } = process.env;
 
+app.use(cors);
+
 app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // подключаемся к серверу mongo
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
+mongoose.connect('mongodb://127.0.0.1:27017/mestodb')
+  .then(() => {
+    console.log('Присоеденился к базе');
+  })
+  .catch((err) => {
+    console.log('Ошибка подключения к базе');
+    console.error(err);
+  });
 
 // подключаем мидлвары, роуты и всё остальное...
 app.use(requestLogger);
