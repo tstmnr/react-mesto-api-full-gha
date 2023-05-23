@@ -20,7 +20,7 @@ require('dotenv').config();
 
 const app = express();
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
 app.use(cors);
 
@@ -30,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 // подключаемся к серверу mongo
-mongoose.connect('mongodb://127.0.0.1:27017/mestodb')
+mongoose.connect(MONGO_URL)
   .then(() => {
     console.log('Присоеденился к базе');
   })
@@ -46,13 +46,11 @@ app.use('/users', userRouter, auth);
 app.use('/cards', cardRouter, auth);
 app.post('/signin', login);
 app.post('/signup', createUser);
-
-app.use(errorLogger);
-
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Страница не существует'));
 });
 
+app.use(errorLogger);
 app.use(celebrateErrors());
 app.use(errors);
 
