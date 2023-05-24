@@ -22,7 +22,8 @@ class Auth {
       headers: {
         ...this._headers,
         Authorization: `Bearer ${jwt}`
-      }
+      },
+      credentials: "include",
     })
   }
 
@@ -33,7 +34,8 @@ class Auth {
       body: JSON.stringify({
         'email': data.email,
         'password': data.password
-      })
+      }),
+      credentials: "include",
     })
   }
 
@@ -44,7 +46,8 @@ class Auth {
       body: JSON.stringify({
         'email': data.email,
         'password': data.password
-      })
+      }),
+      credentials: "include",
     })
   }
 

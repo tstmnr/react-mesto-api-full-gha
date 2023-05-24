@@ -18,13 +18,15 @@ class Api {
 
   getInitialCards() {
     return this._request(`${this._baseUrl}/cards/`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: "include",
     });
   }
 
   getUserInfo() {
     return this._request(`${this._baseUrl}/users/me`, {
-      headers: this._headers
+      headers: this._headers,
+      credentials: "include",
     });
   }
 
@@ -34,7 +36,8 @@ class Api {
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
-      })
+      }),
+      credentials: "include",
     })
   }
 
@@ -45,7 +48,8 @@ class Api {
       body: JSON.stringify({
         name: data.name,
         about: data.about,
-      })
+      }),
+      credentials: "include",
     })
   }
 
@@ -56,7 +60,8 @@ class Api {
       body: JSON.stringify({
         name: data.name,
         link: data.link,
-      })
+      }),
+      credentials: "include",
     })
   }
 
