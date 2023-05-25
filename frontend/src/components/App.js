@@ -56,12 +56,12 @@ function App() {
 
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
-    console.log(jwt);
     if (jwt) {
       auth.checkToken(jwt)
         .then((res) => {
           if (res) {
             setLoggedIn(true);
+            console.log(res);
             setEmail(res.data.email);
             navigate('/', { replace: true });
           }
