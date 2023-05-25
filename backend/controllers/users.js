@@ -26,8 +26,9 @@ module.exports.getUsers = (req, res, next) => {
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
-  res.send({ message: `${req.params}`, req });
-  User.findById(req.user._id)
+  const { _id } = req.user;
+  User.findById(_id)
+    .orFail()
     .then((user) => res.send(user))
     .catch(next);
 };
