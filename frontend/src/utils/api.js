@@ -17,7 +17,7 @@ class Api {
   }
 
   getInitialCards() {
-    return this._request(`${this._baseUrl}/cards/`, {
+    return this._request(`${this._baseUrl}/cards`, {
       headers: this._headers,
       credentials: "include",
     });
