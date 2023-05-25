@@ -54,7 +54,7 @@ function App() {
       })
   }, [loggedIn]);
 
-  /*React.useEffect(() => {
+  React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
       auth.checkToken(jwt)
@@ -69,7 +69,7 @@ function App() {
           console.error(err);
         });
     }
-  }, [navigate]);*/
+  }, [navigate]);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
