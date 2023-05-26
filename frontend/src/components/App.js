@@ -60,7 +60,7 @@ function App() {
         .then((res) => {
           if (res) {
             console.log(res);
-            setEmail(res.email);
+            //setEmail(res.email);
             setLoggedIn(true);
             navigate('/', { replace: true });
           }
