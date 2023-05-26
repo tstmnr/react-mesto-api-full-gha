@@ -25,7 +25,6 @@ class Auth {
   }
 
   authentication(data) {
-    console.log('выводим email и password', data.email, data.password)
     return this._request(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: this._headers,
@@ -54,7 +53,8 @@ class Auth {
 const options = {
   baseUrl: 'https://api.tstmnr.nomoredomains.monster',
   headers: {
-    'Content-Type': 'application/json'
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   },
 }
 
