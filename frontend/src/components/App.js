@@ -40,6 +40,7 @@ function App() {
     loggedIn &&
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userData, cardsData]) => {
+        console.log(userData)
         setCurrentUser({
           name: userData.name,
           about: userData.about,
