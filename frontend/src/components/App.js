@@ -69,7 +69,7 @@ function App() {
           console.error(err);
         })
     }
-  }, [loggedIn, navigate]);
+  }, []);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
