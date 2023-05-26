@@ -31,7 +31,7 @@ module.exports.getCurrentUser = (req, res/* , next */) => {
     .orFail()
     .then((user) => res.send(user))
     .catch(next); */
-  res.send(req);
+  res.send({ message: 'hi', req });
 };
 
 module.exports.createUser = (req, res, next) => {
