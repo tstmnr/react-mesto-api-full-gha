@@ -55,22 +55,20 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
-    const jwt = localStorage.getItem('jwt');
-    if (jwt) {
-      auth.checkToken(jwt)//убрать токен
+    if (!loggedIn) {
+      auth.checkToken()
         .then((res) => {
           if (res) {
-            setLoggedIn(true);
-            console.log('useeffect jwt =>', res.email);
             setEmail(res.email);
+            setLoggedIn(true);
             navigate('/', { replace: true });
           }
         })
         .catch((err) => {
           console.error(err);
-        });
+        })
     }
-  }, [navigate]);
+  }, [loggedIn, navigate]);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();

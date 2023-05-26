@@ -16,13 +16,10 @@ class Auth {
     return fetch(url, options).then(this._checkResponse)
   }
 
-  checkToken(jwt) {
+  checkToken() {
     return this._request(`${this._baseUrl}/users/me`, {
       method: 'GET',
-      headers: {
-        ...this._headers,
-        Authorization: `Bearer ${jwt}`
-      },
+      headers: this._headers,
       credentials: "include",
     })
   }
