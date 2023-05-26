@@ -26,12 +26,10 @@ module.exports.getUsers = (req, res, next) => {
 };
 
 module.exports.getCurrentUser = (req, res, next) => {
-  const { _id } = req.user;
-  User.findById(_id)
+  User.findById(req.user._id)
     .orFail()
     .then((user) => res.send(user))
     .catch(next);
-  res.send({ message: 'hi', req });
 };
 
 module.exports.createUser = (req, res, next) => {

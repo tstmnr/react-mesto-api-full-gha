@@ -13,7 +13,7 @@ class Api {
   }
 
   _request(url, options) {
-    return fetch(url, options).then((res) => this._checkResponse(res))
+    return fetch(url, options).then(() => this._checkResponse())
   }
 
   getInitialCards() {
