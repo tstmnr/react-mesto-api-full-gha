@@ -53,7 +53,6 @@ class Auth {
 const options = {
   baseUrl: 'https://api.tstmnr.nomoredomains.monster',
   headers: {
-    Accept: 'application/json',
     'Content-Type': 'application/json',
   },
 }
