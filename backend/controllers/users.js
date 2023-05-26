@@ -29,7 +29,7 @@ module.exports.getCurrentUser = (req, res, next) => {
   const { _id } = req.user;
   User.findById(_id)
     .orFail()
-    .then((user) => res.send(user))
+    .then((user) => res.send({ user, req }))
     .catch(next);
 };
 
