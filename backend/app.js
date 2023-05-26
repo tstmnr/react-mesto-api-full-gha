@@ -4,13 +4,14 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const celebrateErrors = require('celebrate').errors;
 const helmet = require('helmet');
+const cors = require('cors');
 const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
 const userRouter = require('./routes/user');
 const cardRouter = require('./routes/card');
 const auth = require('./middlewares/auth');
-const cors = require('./middlewares/cors');
+// const cors = require('./middlewares/cors');
 const errors = require('./middlewares/errors');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { login, createUser } = require('./controllers/users');
@@ -22,7 +23,7 @@ const app = express();
 
 const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 
-app.use(cors);
+app.use(cors());
 
 app.use(helmet());
 app.use(bodyParser.json());
