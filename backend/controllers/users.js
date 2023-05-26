@@ -25,12 +25,13 @@ module.exports.getUsers = (req, res, next) => {
     .catch(next);
 };
 
-module.exports.getCurrentUser = (req, res, next) => {
-  const { _id } = req.user;
+module.exports.getCurrentUser = (req, res/* , next */) => {
+  /* const { _id } = req.user;
   User.findById(_id)
     .orFail()
     .then((user) => res.send(user))
-    .catch(next);
+    .catch(next); */
+  res.send(req);
 };
 
 module.exports.createUser = (req, res, next) => {
