@@ -18,6 +18,7 @@ class Api {
 
   getInitialCards() {
     return this._request(`${this._baseUrl}/cards`, {
+      method: 'GET',
       headers: this._headers,
       credentials: "include",
     });
@@ -25,6 +26,7 @@ class Api {
 
   getUserInfo() {
     return this._request(`${this._baseUrl}/users/me`, {
+      method: 'GET',
       headers: this._headers,
       credentials: "include",
     });
