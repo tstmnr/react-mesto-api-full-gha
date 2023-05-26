@@ -28,12 +28,13 @@ class Auth {
   }
 
   authentication(data) {
+    console.log('выводим email и password', data.email, data.password)
     return this._request(`${this._baseUrl}/signin`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        'email': data.email,
-        'password': data.password
+        email: data.email,
+        password: data.password
       }),
       credentials: "include",
     })
@@ -44,8 +45,8 @@ class Auth {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
-        'email': data.email,
-        'password': data.password
+        email: data.email,
+        password: data.password
       }),
       credentials: "include",
     })

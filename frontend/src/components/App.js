@@ -188,9 +188,11 @@ function App() {
 
   function handleLogin(e, data) {
     e.preventDefault();
+    console.log('Нажимаем на кнопку логина')
     auth.authentication(data)
       .then((res) => {
-
+        console.log("Получаем сообщение и данные user", res.message, res.user);
+        setEmail(res.user.email);
         setLoggedIn(true);
         navigate('/', {replace: true})
       })

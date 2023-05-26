@@ -13,7 +13,7 @@ module.exports.login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-key', { expiresIn: '7d' });
       res.cookie('jwt', token, { maxAge: 3600000 * 24 * 7, httpOnly: true, sameSite: true });
       res.status(200).send({
-        message: 'Аутентификация прошла успешно', email, password, user, token,
+        message: 'Аутентификация прошла успешно', user,
       });
     })
     .catch(next);
