@@ -57,12 +57,12 @@ function App() {
   React.useEffect(() => {
     const jwt = localStorage.getItem('jwt');
     if (jwt) {
-      auth.checkToken(jwt)
+      auth.checkToken(jwt)//убрать токен
         .then((res) => {
           if (res) {
             setLoggedIn(true);
-            console.log(res);
-            setEmail(res.data.email);
+            console.log('useeffect jwt =>', res.email);
+            setEmail(res.email);
             navigate('/', { replace: true });
           }
         })
@@ -190,8 +190,7 @@ function App() {
     e.preventDefault();
     auth.authentication(data)
       .then((res) => {
-        console.log(res);
-        localStorage.setItem('jwt', res.token);
+
         setLoggedIn(true);
         navigate('/', {replace: true})
       })

@@ -39,11 +39,18 @@ mongoose.connect(MONGO_URL)
     console.error(err);
   });
 
+// краш-тест
+app.get('/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 // подключаем мидлвары, роуты и всё остальное...
 app.use(requestLogger);
 
-app.use('/users', userRouter, auth);
-app.use('/cards', cardRouter, auth);
+app.use('/users', auth, userRouter);
+app.use('/cards', auth, cardRouter);
 app.post('/signin', login);
 app.post('/signup', createUser);
 app.all('*', (req, res, next) => {
