@@ -55,7 +55,7 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
-    if (!loggedIn) {
+    if (loggedIn) {
       auth.checkToken()
         .then((res) => {
           if (res) {
