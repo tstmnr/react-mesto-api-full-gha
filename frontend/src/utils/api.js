@@ -20,7 +20,7 @@ class Api {
     return this._request(`${this._baseUrl}/cards`, {
       method: 'GET',
       headers: this._headers,
-      credentials: "include",
+      credentials: 'include',
     });
   }
 
@@ -28,7 +28,7 @@ class Api {
     return this._request(`${this._baseUrl}/users/me`, {
       method: 'GET',
       headers: this._headers,
-      credentials: "include",
+      credentials: 'include',
     });
   }
 
@@ -39,7 +39,7 @@ class Api {
       body: JSON.stringify({
         avatar: data.avatar,
       }),
-      credentials: "include",
+      credentials: 'include',
     })
   }
 
@@ -51,7 +51,7 @@ class Api {
         name: data.name,
         about: data.about,
       }),
-      credentials: "include",
+      credentials: 'include',
     })
   }
 
@@ -63,7 +63,7 @@ class Api {
         name: data.name,
         link: data.link,
       }),
-      credentials: "include",
+      credentials: 'include',
     })
   }
 
@@ -71,6 +71,7 @@ class Api {
     return this._request(`${this._baseUrl}/cards/${card._id}`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: 'include',
     })
   }
 
@@ -78,6 +79,7 @@ class Api {
     return this._request(`${this._baseUrl}/cards/${idCard}/likes`, {
       method: 'PUT',
       headers: this._headers,
+      credentials: 'include',
     })
   }
 
@@ -85,6 +87,7 @@ class Api {
     return this._request(`${this._baseUrl}/cards/${idCard}/likes`, {
       method: 'DELETE',
       headers: this._headers,
+      credentials: 'include',
     })
   }
 

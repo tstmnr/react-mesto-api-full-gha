@@ -1,4 +1,6 @@
 const ALLOWED_CORS = [
+  'https://api.tstmnr.nomoredomains.monster',
+  'http://api.tstmnr.nomoredomains.monster',
   'https://tstmnr.nomoredomains.monster',
   'http://tstmnr.nomoredomains.monster',
   'https://158.160.26.122',
