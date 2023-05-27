@@ -10,6 +10,8 @@ const RegExHttp = require('../utils/RegEx');
 
 userRouter.get('', getUsers);
 
+userRouter.get('/me', getCurrentUser);
+
 userRouter.get('/:userId', celebrate({
   params: Joi.object({
     userId: Joi.string().length(24).hex().required(),
@@ -22,8 +24,6 @@ userRouter.patch('/me', celebrate({
     about: Joi.string().min(2).max(30).required(),
   }),
 }), patchUser);
-
-userRouter.get('/me', getCurrentUser);
 
 userRouter.patch('/me/avatar', celebrate({
   body: Joi.object().keys({
