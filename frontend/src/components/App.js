@@ -40,7 +40,6 @@ function App() {
     loggedIn &&
     Promise.all([api.getUserInfo(), api.getInitialCards()])
       .then(([userData, cardsData]) => {
-        console.log(userData)
         setCurrentUser({
           name: userData.name,
           about: userData.about,
@@ -65,6 +64,9 @@ function App() {
         setEmail(res.email);
         setLoggedIn(true);
         navigate("/", { replace: true });
+      })
+      .catch(err => {
+        console.log(err);
       })
   }, [navigate]);
 
