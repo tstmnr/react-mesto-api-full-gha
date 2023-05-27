@@ -73,7 +73,7 @@ function App() {
 
   React.useEffect(() => {
     userLoginCheck();
-  }, [loggedIn, userLoginCheck]);
+  }, [userLoginCheck]);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
