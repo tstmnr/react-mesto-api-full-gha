@@ -55,25 +55,21 @@ function App() {
       })
   }, [loggedIn]);
 
-  const userLoginCheck = React.useCallback(async () => {
-    try {
-      const userData = await api.getUserInfo();
-
-      if (!userData) {
-        navigate("/signin", { replace: true });
-      }
-
-      setEmail(userData.email);
-      setLoggedIn(true);
-      navigate("/", { replace: true });
-    } catch (err) {
-      console.error(err);
-    }
-  }, [navigate]);
-
   React.useEffect(() => {
-    userLoginCheck();
-  }, [userLoginCheck]);
+    api.getUserInfo()
+      .then((res) => {
+        if (!res) {
+          navigate("/signin", { replace: true });
+        }
+
+        setEmail(res.email);
+        setLoggedIn(true);
+        navigate("/", { replace: true });
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [navigate]);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
