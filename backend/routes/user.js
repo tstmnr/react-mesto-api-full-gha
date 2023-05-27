@@ -4,7 +4,7 @@ const { celebrate, Joi } = require('celebrate');
 
 const userRouter = Router();
 const {
-  getUsers, getUser, patchUser, getCurrentUser, patchUserAvatar,
+  getUsers, getUser, patchUser, getCurrentUser, patchUserAvatar, logout,
 } = require('../controllers/users');
 const RegExHttp = require('../utils/RegEx');
 
@@ -30,5 +30,7 @@ userRouter.patch('/me/avatar', celebrate({
     avatar: Joi.string().pattern(RegExHttp).required(),
   }),
 }), patchUserAvatar);
+
+userRouter.delete('/me', logout);
 
 module.exports = userRouter;

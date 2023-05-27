@@ -48,6 +48,14 @@ class Auth {
     })
   }
 
+  logout() {
+    return this._request(`${this._baseUrl}/users/me`, {
+      method: 'DELETE',
+      headers: this._headers,
+      credentials: "include",
+    })
+  }
+
 }
 
 const options = {

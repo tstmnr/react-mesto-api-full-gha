@@ -186,7 +186,6 @@ function App() {
 
   function handleLogin(e, data) {
     e.preventDefault();
-    console.log('Нажимаем на кнопку логина')
     auth.authentication(data)
       .then((res) => {
         setEmail(res.user.email);
@@ -200,8 +199,14 @@ function App() {
   }
 
   function handleLogout() {
-    localStorage.removeItem('jwt')
-    setLoggedIn(false);
+    auth.logout()
+      .then(() => {
+        setLoggedIn(false);
+        navigate('/', {replace: true})
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   return (

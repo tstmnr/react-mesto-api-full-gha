@@ -71,3 +71,12 @@ module.exports.patchUserAvatar = (req, res, next) => {
     .then((user) => res.send(user))
     .catch(next);
 };
+
+module.exports.logout = (req, res) => {
+  res.cookie('jwt', 'none', {
+    maxAge: 5000,
+    httpOnly: true,
+    sameSite: true,
+  });
+  res.send({ message: 'Выход из аккаунта' });
+};
