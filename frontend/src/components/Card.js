@@ -4,9 +4,8 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
 
   const currentUser = React.useContext(CurrentUserContext);
-  console.log('Карточка с данными =>', card)
-  console.log('Собственник карточки =>', card.owner._id)
-  const isOwn = card.owner._id === currentUser._id;
+
+  const isOwn = card.owner === currentUser._id;
   const isLiked = card.likes.some(i => i._id === currentUser._id);
   const cardLikeButtonClassName = (`card__favourites ${isLiked && 'card__favourities_active'}`);
 
