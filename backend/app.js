@@ -48,10 +48,11 @@ app.get('/crash-test', () => {
 // подключаем мидлвары, роуты и всё остальное...
 app.use(requestLogger);
 
+app.post('/signup', createUser);
+app.post('/signin', login);
+
 app.use('/users', auth, userRouter);
 app.use('/cards', auth, cardRouter);
-app.post('/signin', login);
-app.post('/signup', createUser);
 app.all('*', (req, res, next) => {
   next(new NotFoundError('Страница не существует'));
 });
