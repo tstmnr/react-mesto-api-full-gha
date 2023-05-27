@@ -16,14 +16,6 @@ class Auth {
     return fetch(url, options).then(this._checkResponse)
   }
 
-  checkToken() {
-    return this._request(`${this._baseUrl}/users/me`, {
-      method: 'GET',
-      headers: this._headers,
-      credentials: "include",
-    })
-  }
-
   authentication(data) {
     return this._request(`${this._baseUrl}/signin`, {
       method: 'POST',

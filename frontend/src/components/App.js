@@ -55,20 +55,25 @@ function App() {
       })
   }, [loggedIn]);
 
+  const userLoginCheck = React.useCallback(async () => {
+    try {
+      const userData = await api.getUserInfo();
+
+      if (!userData) {
+        throw new Error("Данные пользователя отсутствует");
+      }
+
+      setEmail(userData.email);
+      setLoggedIn(true);
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.error(err);
+    }
+  }, [navigate]);
+
   React.useEffect(() => {
-      auth.checkToken()
-        .then((res) => {
-          if (res) {
-            console.log(res)
-            setEmail(res.email);
-            setLoggedIn(true);
-            navigate('/', { replace: true });
-          }
-        })
-        .catch((err) => {
-          console.error(err);
-        });
-    }, [navigate]);
+    userLoginCheck();
+  }, [userLoginCheck]);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
