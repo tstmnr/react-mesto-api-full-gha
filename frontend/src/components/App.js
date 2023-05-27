@@ -56,7 +56,6 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
-    loggedIn &&
     api.getUserInfo()
       .then((res) => {
         if (!res) {
@@ -66,9 +65,6 @@ function App() {
         setEmail(res.email);
         setLoggedIn(true);
         navigate("/", { replace: true });
-      })
-      .catch(err => {
-        console.log(err);
       })
   }, [navigate]);
 
