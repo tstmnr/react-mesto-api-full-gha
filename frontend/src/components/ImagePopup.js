@@ -7,7 +7,7 @@ console.log(card);
         <figure className="popup-image__figure">
           <button className="popup__close" type="button" aria-label="Закрыть" onClick={onClose}></button>
           <img className="popup-image__photo" alt={card.name} src={card.link} />
-          <figcaption className="popup-image__figcaption">{card.name}</figcaption>
+          <p className="popup-image__figcaption">{card.name}</p>
         </figure>
       </div>
     </section>
