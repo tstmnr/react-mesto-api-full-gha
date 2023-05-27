@@ -56,6 +56,7 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
+    loggedIn &&
     api.getUserInfo()
       .then((res) => {
         if (!res) {

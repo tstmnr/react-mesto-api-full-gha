@@ -48,7 +48,6 @@ app.get('/crash-test', () => {
 // подключаем мидлвары, роуты и всё остальное...
 app.use(requestLogger);
 
-app.use('/', auth);
 app.use('/users', auth, userRouter);
 app.use('/cards', auth, cardRouter);
 app.post('/signin', login);
