@@ -56,7 +56,6 @@ function App() {
   }, [loggedIn]);
 
   React.useEffect(() => {
-    loggedIn &&
       auth.checkToken()
         .then((res) => {
           if (res) {
@@ -69,7 +68,7 @@ function App() {
         .catch((err) => {
           console.error(err);
         });
-    }, [loggedIn, navigate]);
+    }, [navigate]);
 
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
