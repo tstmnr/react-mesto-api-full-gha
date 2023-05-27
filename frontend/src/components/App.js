@@ -55,6 +55,21 @@ function App() {
       })
   }, [loggedIn]);
 
+  React.useEffect(() => {
+    loggedIn &&
+      auth.checkToken()
+        .then((res) => {
+          if (res) {
+            setEmail(res.user.email);
+            setLoggedIn(true);
+            navigate('/', { replace: true });
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    }, [loggedIn, navigate]);
+
   function handleUpdateUserData(e, userData) {
     e.preventDefault();
     api.patchUserInfo(userData)
