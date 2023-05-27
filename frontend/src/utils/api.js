@@ -93,8 +93,10 @@ class Api {
 
   changeLikeCardStatus(idCard, isLiked) {
     if (isLiked) {
+      console.log('Если isLiked true тогда удаляем лайк')
       return this.deleteLike(idCard);
     } else {
+      console.log('Если isLiked false тогда ставим лайк')
       return this.setLike(idCard);
     }
   }
