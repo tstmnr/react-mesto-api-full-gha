@@ -60,7 +60,7 @@ function App() {
       const userData = await api.getUserInfo();
 
       if (!userData) {
-        throw new Error("Данные пользователя отсутствует");
+        navigate("/signin", { replace: true });
       }
 
       setEmail(userData.email);
